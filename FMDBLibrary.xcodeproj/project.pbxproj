@@ -12,7 +12,7 @@
 		D2036D9120FEE78E00048180 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D2036D8F20FEE78E00048180 /* Main.storyboard */; };
 		D2036D9320FEE78F00048180 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D2036D9220FEE78F00048180 /* Assets.xcassets */; };
 		D2036D9620FEE78F00048180 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D2036D9420FEE78F00048180 /* LaunchScreen.storyboard */; };
-		D2036D9F20FEE7F500048180 /* FMDBManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2036D9E20FEE7F500048180 /* FMDBManager.swift */; };
+		D28F63F6210024C100F977F0 /* FMDBManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D28F63F5210024C100F977F0 /* FMDBManager.swift */; };
 		EE671F15F2BE8C0D398BBAC4 /* Pods_FMDBLibrary.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 293B179381EDC05FCCC2A18C /* Pods_FMDBLibrary.framework */; };
 /* End PBXBuildFile section */
 
@@ -26,7 +26,7 @@
 		D2036D9220FEE78F00048180 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		D2036D9520FEE78F00048180 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		D2036D9720FEE78F00048180 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		D2036D9E20FEE7F500048180 /* FMDBManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FMDBManager.swift; sourceTree = "<group>"; };
+		D28F63F5210024C100F977F0 /* FMDBManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FMDBManager.swift; sourceTree = "<group>"; };
 		F7A107012244D7EC455514EF /* Pods-FMDBLibrary.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FMDBLibrary.debug.xcconfig"; path = "Pods/Target Support Files/Pods-FMDBLibrary/Pods-FMDBLibrary.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -62,6 +62,7 @@
 		D2036D7F20FEE78E00048180 = {
 			isa = PBXGroup;
 			children = (
+				D28F63F4210024C100F977F0 /* Library */,
 				D2036D8A20FEE78E00048180 /* FMDBLibrary */,
 				D2036D8920FEE78E00048180 /* Products */,
 				2A5276827854421DABC3569C /* Pods */,
@@ -80,7 +81,6 @@
 		D2036D8A20FEE78E00048180 /* FMDBLibrary */ = {
 			isa = PBXGroup;
 			children = (
-				D2036D9D20FEE7E600048180 /* New Group */,
 				D2036D8B20FEE78E00048180 /* AppDelegate.swift */,
 				D2036D8D20FEE78E00048180 /* ViewController.swift */,
 				D2036D8F20FEE78E00048180 /* Main.storyboard */,
@@ -91,12 +91,12 @@
 			path = FMDBLibrary;
 			sourceTree = "<group>";
 		};
-		D2036D9D20FEE7E600048180 /* New Group */ = {
+		D28F63F4210024C100F977F0 /* Library */ = {
 			isa = PBXGroup;
 			children = (
-				D2036D9E20FEE7F500048180 /* FMDBManager.swift */,
+				D28F63F5210024C100F977F0 /* FMDBManager.swift */,
 			);
-			path = "New Group";
+			path = Library;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -212,7 +212,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				D2036D8E20FEE78E00048180 /* ViewController.swift in Sources */,
-				D2036D9F20FEE7F500048180 /* FMDBManager.swift in Sources */,
+				D28F63F6210024C100F977F0 /* FMDBManager.swift in Sources */,
 				D2036D8C20FEE78E00048180 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
