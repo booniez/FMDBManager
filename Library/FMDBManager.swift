@@ -17,7 +17,12 @@ let SQL_REAL = "REAL"
 let SQL_BLOB = "BLOB"
 
 class FMDBManager {
-    private var dbQueue: FMDatabaseQueue?
+    public lazy var dbQueue: FMDatabaseQueue? = {
+        let fmdbQueue = FMDatabaseQueue.init(path: path)
+        db?.close()
+        db = fmdbQueue.value(forKey: "db") as? FMDatabase
+        return fmdbQueue
+    }()
     public var db: FMDatabase?
     private var path: String?
 
@@ -230,6 +235,67 @@ class FMDBManager {
             return resultDictionary
         }
         return nil
+    }
+
+    public func dropTable(tableName: String) -> Bool {
+        if let db = db {
+            return db.executeUpdate("DROP TABLE \(tableName)", withArgumentsIn: [])
+        }
+        return false
+    }
+
+    public func deleteAllDataWithTable(tableName: String) -> Bool {
+        if let db = db {
+            return db.executeUpdate("DELETE FROM \(tableName)", withArgumentsIn: [])
+        }
+        return false
+    }
+
+    public func isExistTable(tableName: String) -> Bool {
+        if let db = db {
+            if let result = db.executeQuery("SELECT count(*) as 'count' FROM sqlite_master WHERE type ='table' and name = \(tableName)", withArgumentsIn: []) {
+                while result.next() {
+                    if result.int(forColumn: "count") == 0 {
+                        return false
+                    } else {
+                        return true
+                    }
+                }
+            }
+        }
+        return false
+    }
+
+    public func tableItemCount(tableName: String) -> NSInteger {
+        if let db = db {
+            if let result = db.executeQuery("SELECT count(*) as 'count' FROM \(tableName)", withArgumentsIn: []) {
+                while result.next() {
+                    return NSInteger(result.int(forColumn: "count"))
+                }
+            }
+
+        }
+        return 0
+    }
+
+    public func close() {
+        db?.close()
+    }
+
+    public func open() {
+        db?.open()
+    }
+
+    public func inDatabase(block: () -> ()) {
+        dbQueue?.inDatabase({ (_) in
+            block()
+        })
+    }
+
+    public func inTransaction(block: (_ rollback: UnsafeMutablePointer<ObjCBool>) -> ()) {
+        dbQueue?.inTransaction({ (_, rollback) in
+            block(rollback)
+        })
     }
 
 }
