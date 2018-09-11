@@ -1,0 +1,4 @@
+language: swift
+xcode_project: ./FMDBLibrary.xcworkspace
+xcode_scheme: FMDBLibrary
+osx_image: xcode9
